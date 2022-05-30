@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0703B44228446C8800A9A15F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0703B44128446C8800A9A15F /* GoogleService-Info.plist */; };
 		07300275283378370073FFF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07300274283378370073FFF3 /* AppDelegate.swift */; };
 		07300279283378370073FFF3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07300278283378370073FFF3 /* MainTabBarController.swift */; };
 		0730027C283378370073FFF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0730027A283378370073FFF3 /* Main.storyboard */; };
@@ -18,10 +19,10 @@
 		0742FD09283B6793003513D5 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0742FD08283B6793003513D5 /* RxSwift */; };
 		07DB4F5E283CB45700D9B110 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB4F5D283CB45700D9B110 /* LibraryViewController.swift */; };
 		07DB4F60283CB4EC00D9B110 /* LibraryViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB4F5F283CB4EC00D9B110 /* LibraryViewReactor.swift */; };
-		07DB4F69283CD6A500D9B110 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07DB4F68283CD6A500D9B110 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0703B44128446C8800A9A15F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		07300271283378370073FFF3 /* MinFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07300274283378370073FFF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07300278283378370073FFF3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
