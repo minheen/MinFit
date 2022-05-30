@@ -12,7 +12,8 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let libraryVC = LibraryViewController()
+        let reactor = LibraryViewReactor()
+        let libraryVC = LibraryViewController(reactor: reactor)
         libraryVC.title = "라이브러리"
         libraryVC.tabBarItem.image = UIImage(named: "library")
         

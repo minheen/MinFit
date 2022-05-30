@@ -7,19 +7,29 @@
 
 import UIKit
 
-import Firebase
+import ReactorKit
+import RxCocoa
+import RxSwift
 
-class LibraryViewController: UIViewController {
-
-    var ref: DatabaseReference!
+class LibraryViewController: UIViewController, View {
+    var disposeBag = DisposeBag()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        ref = Database.database().reference()
-        ref.child("Library").observeSingleEvent(of: .value) { kind in
-            kind.children.forEach { name in
-                print(name)
-            }
-        }
+    init(reactor: LibraryViewReactor)  {
+        super.init(nibName: nil, bundle: nil)
+        self.reactor = reactor
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func bind(reactor: LibraryViewReactor) {
+        reactor.action.onNext(Reactor.Action.refresh)
+        
+        reactor.state.asObservable().map { $0.exercises }
+        .subscribe(onNext: { exercise in
+            
+        })
+        .disposed(by: disposeBag)
     }
 }

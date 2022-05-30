@@ -17,8 +17,10 @@
 		073002922833963A0073FFF3 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 073002912833963A0073FFF3 /* FirebaseDatabase */; };
 		0742FD07283B6793003513D5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0742FD06283B6793003513D5 /* RxCocoa */; };
 		0742FD09283B6793003513D5 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0742FD08283B6793003513D5 /* RxSwift */; };
+		078F324428449EFB00484C7B /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 078F324328449EFB00484C7B /* ReactorKit */; };
 		07DB4F5E283CB45700D9B110 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB4F5D283CB45700D9B110 /* LibraryViewController.swift */; };
 		07DB4F60283CB4EC00D9B110 /* LibraryViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB4F5F283CB4EC00D9B110 /* LibraryViewReactor.swift */; };
+		07DB4F63283CC8B700D9B110 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB4F62283CC8B700D9B110 /* Exercise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
