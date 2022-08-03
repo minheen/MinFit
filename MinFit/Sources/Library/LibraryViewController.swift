@@ -10,6 +10,7 @@ import UIKit
 import FlexLayout
 import ReactorKit
 import RxCocoa
+import RxDataSources
 import RxSwift
 import Then
 import PinLayout
@@ -18,6 +19,12 @@ class LibraryViewController: UIViewController, View {
     // MARK: Properties
     
     var disposeBag = DisposeBag()
+    let dataSource = RxTableViewSectionedReloadDataSource<LibrarySection>(
+        configureCell: { dataSource, tableView, indexPath, reactor in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LibraryCell") as! LibraryCell
+            cell.reactor = reactor
+            return cell
+    })
     
     // MARK: UI
     
@@ -54,7 +61,7 @@ class LibraryViewController: UIViewController, View {
         self.view.addSubview(self.rootFlexContainer)
         
         self.rootFlexContainer.flex.define { flex in
-            flex.addItem(self.tableView)
+            flex.addItem(self.tableView).height(100%)
         }
     }
     
@@ -65,15 +72,23 @@ class LibraryViewController: UIViewController, View {
         self.rootFlexContainer.flex.layout()
     }
     
-    // MARK: bind
+    // MARK: Binding
     
     func bind(reactor: LibraryViewReactor) {
+        tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        
         reactor.action.onNext(Reactor.Action.refresh)
         
-        reactor.state.asObservable().map { $0.exercises }
-        .subscribe(onNext: { exercise in
-            
-        })
-        .disposed(by: disposeBag)
+        // State
+        reactor.state.asObservable()
+            .map { $0.exercises }
+            .bind(to: self.tableView.rx.items(dataSource: self.dataSource))
+            .disposed(by: disposeBag)
+    }
+}
+
+extension LibraryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }

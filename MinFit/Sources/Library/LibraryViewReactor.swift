@@ -10,6 +10,9 @@ import Foundation
 import Firebase
 import ReactorKit
 import RxSwift
+import RxDataSources
+
+typealias LibrarySection = SectionModel<Void, LibraryCellReactor>
 
 final class LibraryViewReactor: Reactor {
     
@@ -19,11 +22,11 @@ final class LibraryViewReactor: Reactor {
     }
     
     enum Mutation {
-        case setExercises([Exercise])
+        case setExercises([LibrarySection])
     }
     
     struct State {
-        var exercises: [Exercise]
+        var exercises: [LibrarySection]
     }
     
     let initialState: State
@@ -37,7 +40,9 @@ final class LibraryViewReactor: Reactor {
         case .refresh:
             return self.fetchExerciseList()
                 .map { exercises in
-                    return .setExercises(exercises)
+                    let sectionItems = exercises.map(LibraryCellReactor.init)
+                    let section = LibrarySection(model: (), items: sectionItems)
+                    return .setExercises([section])
                 }
         }
     }

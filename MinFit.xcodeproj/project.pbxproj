@@ -18,6 +18,7 @@
 		073CF88C2897C4F300136D86 /* LibraryCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073CF88B2897C4F300136D86 /* LibraryCellReactor.swift */; };
 		0742FD07283B6793003513D5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0742FD06283B6793003513D5 /* RxCocoa */; };
 		0742FD09283B6793003513D5 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0742FD08283B6793003513D5 /* RxSwift */; };
+		074CB84C289A397400EEF84B /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 074CB84B289A397400EEF84B /* RxDataSources */; };
 		077DC8D12897712B0042E6D9 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 077DC8D02897712B0042E6D9 /* Then */; };
 		077DC8D428977B390042E6D9 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 077DC8D328977B390042E6D9 /* PinLayout */; };
 		077DC8D72897A3040042E6D9 /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 077DC8D62897A3040042E6D9 /* FlexLayout */; };
@@ -55,6 +56,7 @@
 				077DC8D12897712B0042E6D9 /* Then in Frameworks */,
 				078F324428449EFB00484C7B /* ReactorKit in Frameworks */,
 				077DC8D428977B390042E6D9 /* PinLayout in Frameworks */,
+				074CB84C289A397400EEF84B /* RxDataSources in Frameworks */,
 				073002902833963A0073FFF3 /* FirebaseAnalytics in Frameworks */,
 				077DC8D72897A3040042E6D9 /* FlexLayout in Frameworks */,
 			);
@@ -171,6 +173,7 @@
 				077DC8D02897712B0042E6D9 /* Then */,
 				077DC8D328977B390042E6D9 /* PinLayout */,
 				077DC8D62897A3040042E6D9 /* FlexLayout */,
+				074CB84B289A397400EEF84B /* RxDataSources */,
 			);
 			productName = MinFit;
 			productReference = 07300271283378370073FFF3 /* MinFit.app */;
@@ -208,9 +211,7 @@
 				077DC8CF2897712B0042E6D9 /* XCRemoteSwiftPackageReference "Then" */,
 				077DC8D228977B390042E6D9 /* XCRemoteSwiftPackageReference "PinLayout" */,
 				077DC8D52897A3040042E6D9 /* XCRemoteSwiftPackageReference "FlexLayout" */,
-				077DC8D82897A58E0042E6D9 /* XCRemoteSwiftPackageReference "FlexLayout" */,
-				077DC8DB2897A5D30042E6D9 /* XCRemoteSwiftPackageReference "FlexLayout" */,
-				077DC8DE2897BCFA0042E6D9 /* XCRemoteSwiftPackageReference "RxViewController" */,
+				074CB84A289A397400EEF84B /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = 07300272283378370073FFF3 /* Products */;
 			projectDirPath = "";
@@ -485,6 +486,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		074CB84A289A397400EEF84B /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		077DC8CF2897712B0042E6D9 /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
@@ -507,30 +516,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
-			};
-		};
-		077DC8D82897A58E0042E6D9 /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/layoutBox/FlexLayout";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		077DC8DB2897A5D30042E6D9 /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/layoutBox/FlexLayout";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		077DC8DE2897BCFA0042E6D9 /* XCRemoteSwiftPackageReference "RxViewController" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/RxViewController";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
 			};
 		};
 		078F324228449EFB00484C7B /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
@@ -571,6 +556,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0742FD05283B6793003513D5 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		074CB84B289A397400EEF84B /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 074CB84A289A397400EEF84B /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 		077DC8D02897712B0042E6D9 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
