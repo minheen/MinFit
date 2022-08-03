@@ -8,9 +8,17 @@
 import UIKit
 
 import FlexLayout
+import ReactorKit
+import RxSwift
 import PinLayout
 
-class LibraryCell: UITableViewCell {
+class LibraryCell: UITableViewCell, View {
+    typealias Reactor = LibraryCellReactor
+    
+    // MARK: Properties
+   
+    var disposeBag = DisposeBag()
+    
     // MARK: UI
     
     let rootFlexContainer: UIView = UIView()
@@ -29,6 +37,12 @@ class LibraryCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: Binding
+    
+    func bind(reactor: Reactor) {
+        self.nameLabel.text = reactor.currentState.name
     }
     
     // MARK: Layout
