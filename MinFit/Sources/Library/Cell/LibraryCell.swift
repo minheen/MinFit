@@ -11,6 +11,7 @@ import FlexLayout
 import ReactorKit
 import RxSwift
 import PinLayout
+import Kingfisher
 
 class LibraryCell: UITableViewCell, View {
     typealias Reactor = LibraryCellReactor
@@ -22,12 +23,10 @@ class LibraryCell: UITableViewCell, View {
     // MARK: UI
     
     let rootFlexContainer: UIView = UIView()
-    let exerciseImageView = UIImageView().then {
-        $0.backgroundColor = .orange
-    }
+    let exerciseImageView = UIImageView()
     let nameLabel = UILabel().then {
         $0.textColor = .black
-        $0.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        $0.font = UIFont.systemFont(ofSize: 16, weight: .medium)
     }
     
     // MARK: Initializing
@@ -41,17 +40,16 @@ class LibraryCell: UITableViewCell, View {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Initializing
-    
     func initialize() {
+        self.selectionStyle = .none
+        self.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         self.contentView.addSubview(rootFlexContainer)
-        self.rootFlexContainer.addSubview(self.exerciseImageView)
-        self.rootFlexContainer.addSubview(self.nameLabel)
     }
     
     // MARK: Binding
     
     func bind(reactor: Reactor) {
+        self.exerciseImageView.kf.setImage(with: URL(string: reactor.currentState.image))
         self.nameLabel.text = reactor.currentState.name
     }
     
@@ -65,17 +63,14 @@ class LibraryCell: UITableViewCell, View {
         
         self.rootFlexContainer.flex
             .direction(.row)
-            .justifyContent(.start)
-            .alignItems(.start)
+            .alignItems(.center)
             .define { flex in
                 flex.addItem(self.exerciseImageView)
                     .height(60)
-                    .aspectRatio(of: self.exerciseImageView)
-                    .marginTop(10)
+                    .width(60)
                     .marginLeft(20)
-                    .marginBottom(10)
                 flex.addItem(self.nameLabel)
-                    .marginLeft(10)
+                    .marginLeft(20)
             }
     }
 }
