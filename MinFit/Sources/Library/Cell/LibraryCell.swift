@@ -26,7 +26,11 @@ class LibraryCell: UITableViewCell, View {
     let exerciseImageView = UIImageView()
     let nameLabel = UILabel().then {
         $0.textColor = .black
-        $0.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        $0.font = .systemFont(ofSize: 16, weight: .medium)
+    }
+    let descriptionLabel = UILabel().then {
+        $0.textColor = .darkGray
+        $0.font = .systemFont(ofSize: 12, weight: .regular)
     }
     
     // MARK: Initializing
@@ -44,6 +48,7 @@ class LibraryCell: UITableViewCell, View {
         self.selectionStyle = .none
         self.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         self.contentView.addSubview(rootFlexContainer)
+        setupConstraints()
     }
     
     // MARK: Binding
@@ -51,16 +56,12 @@ class LibraryCell: UITableViewCell, View {
     func bind(reactor: Reactor) {
         self.exerciseImageView.kf.setImage(with: URL(string: reactor.currentState.image))
         self.nameLabel.text = reactor.currentState.name
+        self.descriptionLabel.text = reactor.currentState.description
     }
     
     // MARK: Layout
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        self.rootFlexContainer.pin.all()
-        self.rootFlexContainer.flex.layout()
-        
+    func setupConstraints() {
         self.rootFlexContainer.flex
             .direction(.row)
             .alignItems(.center)
@@ -69,8 +70,22 @@ class LibraryCell: UITableViewCell, View {
                     .height(60)
                     .width(60)
                     .marginLeft(20)
-                flex.addItem(self.nameLabel)
-                    .marginLeft(20)
+                flex.addItem()
+                    .justifyContent(.center)
+                    .alignItems(.start)
+                    .marginLeft(10)
+                    .define { flex in
+                        flex.addItem(self.nameLabel)
+                        flex.addItem(self.descriptionLabel)
+                            .paddingTop(5)
+                    }
             }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.rootFlexContainer.pin.all()
+        self.rootFlexContainer.flex.layout()
     }
 }

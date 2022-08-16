@@ -9,4 +9,5 @@ struct Exercise: Decodable {
     var name: String
     var part: String
     var image: String
+    var description: String
 }
